@@ -1,9 +1,25 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 #calculator {
     display: flex;
     flex-direction: column;
+    width: 400px;
+    height: 100vh;
+    background-color: #F8F8F8;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 #calculator .row {
     display: flex;
     flex-direction: row;
+}
+
+#calculator #display {
+    background-color: #2E2E2E;
+    width: 100g%;
+    height: 15vh;
 }
