@@ -51,8 +51,18 @@ html, body {
     background-color: #828282;
 }
 
-#calculator .row .btn {
+#calculator .row .btn, #display {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#calculator #display {
+    justify-content: flex-end;
+}
+
+#calculator #display p {
+    margin-right: 10px;
+    font-size: 48px;
+    color: #FFFFFF;
 }
