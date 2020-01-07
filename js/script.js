@@ -97,9 +97,14 @@ const addOp = (btn) => {
     } else if (btn == "m-add") {
 
         op.push("+");
-        cleanDisplay()
+        cleanDisplay();
 
-    } else if (btn == "m-sub") {}
+    } else if (btn == "m-sub") {
+
+        op.push("-");
+        cleanDisplay();
+
+    }
 };
 
 document.querySelector("#calculator").addEventListener('click', (e) => {
