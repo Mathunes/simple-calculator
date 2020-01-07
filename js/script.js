@@ -1,6 +1,27 @@
 
 let op = Array(" ");
 
+const result = () => {
+    for (let i = 0; i < (op.length); i++) {
+        if ("+-*/".indexOf(op[i]) != -1) {
+            switch (op[i]) {
+                case "+":
+                    op[i+1] = op[i-1] + op[i+1];
+                    break;
+                case "-":
+                    op[i+1] = op[i-1] + op[i+1];
+                    break;
+                case "*":
+                    op[i+1] = op[i-1] + op[i+1];
+                    break;
+                case "/":
+                    op[i+1] = op[i-1] + op[i+1];
+                    break;
+            }
+        }
+    }
+}
+
 const showDisplay = (btn) => {
     document.querySelector("#calculator #display p").innerText += btn;
 };
@@ -82,10 +103,9 @@ const addOp = (btn) => {
 
             op[op.length-1] = parseFloat(op[op.length-1]);
 
-            console.log(op);
+            result();
 
         }
-
         
     }
 };
