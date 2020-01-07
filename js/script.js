@@ -13,6 +13,11 @@ const addOp = (btn) => {
             op[op.length-1]+=btn;
             showDisplay(btn);
 
+        } else {
+
+            op.push(btn);
+            showDisplay(btn);
+
         }
 
     }  else if (btn == "point") {
@@ -56,19 +61,32 @@ const addOp = (btn) => {
             default:
                 break;
         }
-
         
+        op[op.length-1] = parseFloat(op[op.length-1]);
 
         if ("+-*/".indexOf(op[op.length-1]) == -1) {
 
             op.push(opSignal);
+            document.querySelector("#calculator #display p").innerText = "";
 
         } else {
 
             op[op.length-1] = opSignal;
+            document.querySelector("#calculator #display p").innerText = "";
 
         }
 
+    } else if (btn == "result") {
+
+        if (!((op.length <= 2) || ("+-*/".indexOf(op[op.length-1]) != -1))) {
+
+            op[op.length-1] = parseFloat(op[op.length-1]);
+
+            console.log(op);
+
+        }
+
+        
     }
 };
 
