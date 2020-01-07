@@ -41,6 +41,11 @@ const addOp = (btn) => {
                 showDisplay('.');
             }
 
+        } else {
+            
+            op.push(".");
+            showDisplay('.');
+
         }
 
     } else if (btn == "ce") {
