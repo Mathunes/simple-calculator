@@ -14,7 +14,16 @@ const cleanDisplay = () => {
 }
 
 const showDisplay = (btn) => {
-    document.querySelector("#calculator #display p").innerText += btn;
+    if (document.querySelector("#calculator #display p").innerText.length <= 14) {
+
+        document.querySelector("#calculator #display p").innerText += btn;
+
+    } else {
+
+        document.querySelector("#calculator #display p").innerText = document.querySelector("#calculator #display p").innerText.substring(1);
+        document.querySelector("#calculator #display p").innerText += btn;
+
+    }
 };
 
 const addOp = (btn) => {
