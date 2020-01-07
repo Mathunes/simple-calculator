@@ -1,5 +1,5 @@
 
-const op = Array(" ");
+let op = Array(" ");
 
 const showDisplay = (btn) => {
     document.querySelector("#calculator #display p").innerText += btn;
@@ -30,8 +30,44 @@ const addOp = (btn) => {
 
         document.querySelector("#calculator #display p").innerText = "";
         op[op.length-1] = " ";
-        
+
     } else if (btn == "ac") {
+
+        document.querySelector("#calculator #display p").innerText = "";
+        op = [" "];
+
+    } else if ("sum sub mul div".indexOf(btn) != -1) {
+
+        let opSignal;
+
+        switch (btn) {
+            case "sum":
+                opSignal = "+";
+                break;
+            case "sub":
+                opSignal = "-";
+                break;
+            case "mul":
+                opSignal = "*";
+                break;
+            case "div":
+                opSignal = "/";
+                break;
+            default:
+                break;
+        }
+
+        
+
+        if ("+-*/".indexOf(op[op.length-1]) == -1) {
+
+            op.push(opSignal);
+
+        } else {
+
+            op[op.length-1] = opSignal;
+
+        }
 
     }
 };
