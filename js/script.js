@@ -2,24 +2,15 @@
 let op = Array(" ");
 
 const result = () => {
-    for (let i = 0; i < (op.length); i++) {
-        if ("+-*/".indexOf(op[i]) != -1) {
-            switch (op[i]) {
-                case "+":
-                    op[i+1] = op[i-1] + op[i+1];
-                    break;
-                case "-":
-                    op[i+1] = op[i-1] + op[i+1];
-                    break;
-                case "*":
-                    op[i+1] = op[i-1] + op[i+1];
-                    break;
-                case "/":
-                    op[i+1] = op[i-1] + op[i+1];
-                    break;
-            }
-        }
-    }
+    const result = math.evaluate(op.join(""));
+
+    op = [result];
+
+    return showDisplay(result);
+}
+
+const cleanDisplay = () => {
+    document.querySelector("#calculator #display p").innerText = "";
 }
 
 const showDisplay = (btn) => {
@@ -54,12 +45,12 @@ const addOp = (btn) => {
 
     } else if (btn == "ce") {
 
-        document.querySelector("#calculator #display p").innerText = "";
+        cleanDisplay();
         op[op.length-1] = " ";
 
     } else if (btn == "ac") {
 
-        document.querySelector("#calculator #display p").innerText = "";
+        cleanDisplay();
         op = [" "];
 
     } else if ("sum sub mul div".indexOf(btn) != -1) {
@@ -82,27 +73,23 @@ const addOp = (btn) => {
             default:
                 break;
         }
-        
-        op[op.length-1] = parseFloat(op[op.length-1]);
 
         if ("+-*/".indexOf(op[op.length-1]) == -1) {
 
             op.push(opSignal);
-            document.querySelector("#calculator #display p").innerText = "";
 
         } else {
 
             op[op.length-1] = opSignal;
-            document.querySelector("#calculator #display p").innerText = "";
 
         }
+        cleanDisplay();
 
     } else if (btn == "result") {
 
         if (!((op.length <= 2) || ("+-*/".indexOf(op[op.length-1]) != -1))) {
 
-            op[op.length-1] = parseFloat(op[op.length-1]);
-
+            cleanDisplay();
             result();
 
         }
