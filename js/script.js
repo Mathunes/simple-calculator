@@ -6,6 +6,13 @@ const result = () => {
 
     op = [result.toString()];
 
+    if (result.toString().length > 14) {
+        let firstDig = result.toString().substr(0, 10);
+        firstDig += "e+"+(result.toString().length-14);
+
+        return showDisplay(firstDig);
+    }
+
     return showDisplay(result);
 }
 
