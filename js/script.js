@@ -94,7 +94,12 @@ const addOp = (btn) => {
 
         }
         
-    }
+    } else if (btn == "m-add") {
+
+        op.push("+");
+        cleanDisplay()
+
+    } else if (btn == "m-sub") {}
 };
 
 document.querySelector("#calculator").addEventListener('click', (e) => {
