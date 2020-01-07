@@ -2,9 +2,9 @@
 let op = Array(" ");
 
 const result = () => {
-    const result = math.evaluate(op.join(""));
+    const result =  math.evaluate(op.join(""));
 
-    op = [result];
+    op = [result.toString()];
 
     return showDisplay(result);
 }
